@@ -16,5 +16,5 @@ dependencies {
 
     api dep.okhttp
 
-    compileOnly project(path: ':utils')
+    implementation project(path: ':utils')
 }
