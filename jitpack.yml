@@ -14,7 +14,7 @@ install:
   - ./gradlew :Library:Common:publishToMavenLocal
   - ./gradlew :Library:AddressPicker:publishToMavenLocal
   - ./gradlew :Library:WheelView:publishToMavenLocal
-  - ./gradlew :Library:LiveEventBus:publishToMavenLocal
+  - ./gradlew :Library:liveEventBus:publishToMavenLocal
   - ./gradlew :Library:GlideImageLoader:publishToMavenLocal
   - ./gradlew :Library:Transferee:publishToMavenLocal
   - ./gradlew :Library:bindingcollectionadapter:publishToMavenLocal
