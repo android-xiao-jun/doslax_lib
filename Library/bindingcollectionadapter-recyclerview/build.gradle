@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+apply from: "$rootDir/config/config.gradle"
+apply from: "$rootDir/config/maven_publish.gradle"
+
+android {
+    def dep = rootProject.ext.cfg
+
+    compileSdk dep.compileSdk
+
+    defaultConfig {
+        minSdkVersion dep.minSdk
+        targetSdkVersion dep.targetSdk
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+    namespace 'me.tatarka.bindingcollectionadapter2.recyclerview'
+
+}
+
+
+dependencies {
+
+    def dep = rootProject.ext.dependencies
+    api project(':Library:bindingcollectionadapter')
+
+    // androidx 依赖
+    implementation dep.appcompat
+    implementation dep.design
+
+}

@@ -1,0 +1,60 @@
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <View
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/top_radius_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialog_modal_cancel"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="12dp"
+            android:text="取消"
+            android:textColor="#A1A1A1"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialog_modal_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#181818"
+            android:visibility="gone"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_modal_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/dialog_modal_cancel"
+            tools:text="@android:string/untitled" />
+
+        <net.csdn.roundview.RoundTextView
+            android:id="@+id/dialog_modal_ok"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="14dp"
+            android:minWidth="60dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
+            app:rRadius="24dp"
+            android:text="确定"
+            app:layout_constraintTop_toTopOf="@id/dialog_modal_cancel"
+            app:layout_constraintBottom_toBottomOf="@id/dialog_modal_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:background="#FE6A7F"
+            android:layout_height="28dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

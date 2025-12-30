@@ -1,0 +1,102 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: "$rootDir/config/config.gradle"
+
+buildscript {
+    ext.kotlin_version = "1.6.21"
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+            allowInsecureProtocol = true
+        }
+        maven { url 'https://repo1.maven.org/maven2/' }     // 新的友盟仓库
+
+        maven { url 'https://jitpack.io' }
+//        maven {
+//            url 'http://192.168.12.106:8081/nexus/repository/maven-public/'
+//            allowInsecureProtocol = true
+//        }   // 大数据私有仓库
+        google()
+        mavenCentral()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+
+//        configurations.all {
+////            resolutionStrategy.cacheDynamicVersionsFor 1, 'seconds'
+//            resolutionStrategy.cacheDynamicVersionsFor(100, "minutes")
+//        }
+        maven {
+            url "https://mvn.mob.com/android"
+            allowInsecureProtocol = true
+        }
+
+        /// BarmakAsr 语音转文字私有仓库
+//        maven {
+//            url "http://192.168.12.106:8081/nexus/repository/maven-releases/"
+//            allowInsecureProtocol = true
+//        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21"
+//        classpath 'com.tencent.bugly:symtabfileuploader:2.2.1'
+
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0'
+        classpath "com.alibaba:arouter-register:1.0.2"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+
+        // 注册MobSDK
+        //classpath "com.mob.sdk:MobSDK-Impl:2020.1231.1035"
+
+        // 2.注册MobSDK
+        classpath "com.mob.sdk:MobSDK2022:2023.0921.1825"
+//        classpath "com.mob.sdk:MobSDK2:+"
+        classpath 'com.meituan.android.walle:plugin:1.1.7'
+    }
+
+    ext {
+        //R8混淆开启之后解决APP打开类加载时找不到类的问题,指定文件来放置启动时需要优先加载的类
+        MAINDEXLIST = 'maindexlist.txt'
+    }
+}
+
+
+allprojects {
+    repositories {
+        // 巨量引擎
+        maven {
+            url 'https://artifact.bytedance.com/repository/Volcengine/'
+        }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+//        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven {
+            url 'http://developer.huawei.com/repo/'
+            allowInsecureProtocol = true
+        }
+        maven { url 'https://repo1.maven.org/maven2/' }     // 新的友盟仓库
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+        maven { url 'https://jitpack.io' }
+//        maven {
+//            url 'http://192.168.12.106:8081/nexus/repository/maven-public/'
+//            allowInsecureProtocol = true
+//        }   // 大数据私有仓库
+        google()
+        mavenCentral()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+
+        maven {
+            url "http://mvn.mob.com/android"
+            allowInsecureProtocol = true
+        }
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

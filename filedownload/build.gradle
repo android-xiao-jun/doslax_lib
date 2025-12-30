@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'org.greenrobot.greendao'
+}
+
+apply from: "$rootDir/config/common_apply.gradle"
+apply from: "$rootDir/config/maven_publish.gradle"
+
+android {
+    greendao{
+        schemaVersion 1
+        daoPackage 'com.greendao.gen'
+        targetGenDir 'src/main/java'
+    }
+}
+
+dependencies {
+
+    def dep = rootProject.ext.dependencies
+
+    implementation dep.localbroadcastmanager
+    implementation dep.stdlib
+    implementation dep.ktx_core
+    implementation dep.appcompat
+    implementation dep.annotation
+    implementation dep.ktx_livedata
+    implementation dep.design
+
+    implementation 'org.greenrobot:greendao:3.3.0' // add library
+    implementation 'org.greenrobot:greendao-generator:3.3.0'
+    implementation dep.retrofit2
+    implementation dep.rxjava2
+    implementation dep.rxAndroid
+    implementation dep.retrofit2_gson
+    implementation dep.gson
+    implementation dep.okhttp
+    implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+
+//    testImplementation dep.junit4
+//    androidTestImplementation dep.android_test
+//    androidTestImplementation dep.espresso
+}

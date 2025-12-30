@@ -1,0 +1,38 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+apply from: "$rootDir/config/config.gradle"
+apply from: "$rootDir/config/maven_publish.gradle"
+
+android {
+    def dep = rootProject.ext.cfg
+
+    compileSdk dep.compileSdk
+
+    defaultConfig {
+        minSdkVersion dep.minSdk
+        targetSdkVersion dep.targetSdk
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    namespace 'com.github.gzuliyujiang.dialog'
+}
+
+dependencies {
+
+    def dep = rootProject.ext.dependencies
+
+    implementation dep.ktx_core
+    implementation dep.appcompat
+    implementation dep.design
+    implementation dep.constraint_layout
+    compileOnly 'io.github.csdn-mobile:RoundView:1.8.0'
+}

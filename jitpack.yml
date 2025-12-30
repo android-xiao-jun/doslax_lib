@@ -1,0 +1,26 @@
+jdk:
+  - openjdk11
+
+before_install:
+  - ./gradlew clean
+
+install:
+  - ./gradlew :utils:publishToMavenLocal
+  - ./gradlew :ucrop:publishToMavenLocal
+  - ./gradlew :barmak-asrsdk:publishToMavenLocal
+  - ./gradlew :panel-androidx:publishToMavenLocal
+  - ./gradlew :flowcamera:publishToMavenLocal
+  - ./gradlew :Library:WheelPicker:publishToMavenLocal
+  - ./gradlew :Library:Common:publishToMavenLocal
+  - ./gradlew :Library:AddressPicker:publishToMavenLocal
+  - ./gradlew :Library:WheelView:publishToMavenLocal
+  - ./gradlew :Library:LiveEventBus:publishToMavenLocal
+  - ./gradlew :Library:GlideImageLoader:publishToMavenLocal
+  - ./gradlew :Library:Transferee:publishToMavenLocal
+  - ./gradlew :Library:bindingcollectionadapter:publishToMavenLocal
+  - ./gradlew :Library:bindingcollectionadapter-recyclerview:publishToMavenLocal
+  - ./gradlew :Library:bindingcollectionadapter-viewpager2:publishToMavenLocal
+  - ./gradlew :Library:physicslayout:publishToMavenLocal
+  - ./gradlew :Library:logwritelibrary:publishToMavenLocal
+  - ./gradlew :Library:VideoCache:publishToMavenLocal
+  - ./gradlew :Library:ImmersionBar:publishToMavenLocal

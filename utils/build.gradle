@@ -1,0 +1,24 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+apply from: "$rootDir/config/common_apply.gradle"
+apply from: "$rootDir/config/maven_publish.gradle"
+
+
+dependencies {
+    def dep = rootProject.ext.dependencies
+    implementation dep.stdlib
+    implementation dep.ktx_core
+    implementation dep.appcompat
+    implementation dep.design
+    implementation dep.annotation
+    implementation dep.ktx_livedata
+    implementation dep.gson
+    implementation dep.bugly
+
+//    testImplementation 'junit:junit:4.+'
+//    androidTestImplementation dep.android_test
+//    androidTestImplementation dep.espresso
+}
