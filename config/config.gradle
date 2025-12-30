@@ -33,10 +33,31 @@ ext {
             test_runner        : "1.2.0",
             // BaseRecyclerAdapter
             cymchad_baseadapter: "3.0.6",
+            app_lib_version: "1.0.0",
     ]
 
     dependencies = [
             //support common
+            utils_lib                                : "com.github.android-xiao-jun.doslax_lib:utils:$versions.app_lib_version",
+            ucrop_lib                                : "com.github.android-xiao-jun.doslax_lib:ucrop:$versions.app_lib_version",
+            barmak_lib                               : "com.github.android-xiao-jun.doslax_lib:barmak-asrsdk:$versions.app_lib_version",
+            panel_androidx_lib                       : "com.github.android-xiao-jun.doslax_lib:panel-androidx:$versions.app_lib_version",
+            flowcamera_lib                           : "com.github.android-xiao-jun.doslax_lib:flowcamera:$versions.app_lib_version",
+            wheelPicker_lib                          : "com.github.android-xiao-jun.doslax_lib:WheelPicker:$versions.app_lib_version",
+            common_lib                               : "com.github.android-xiao-jun.doslax_lib:Common:$versions.app_lib_version",
+            addressPicker_lib                        : "com.github.android-xiao-jun.doslax_lib:AddressPicker:$versions.app_lib_version",
+            wheelView_lib                            : "com.github.android-xiao-jun.doslax_lib:WheelView:$versions.app_lib_version",
+            LiveEventBus_lib                         : "com.github.android-xiao-jun.doslax_lib:LiveEventBus:$versions.app_lib_version",
+            glideImageLoader_lib                     : "com.github.android-xiao-jun.doslax_lib:GlideImageLoader:$versions.app_lib_version",
+            transferee_lib                           : "com.github.android-xiao-jun.doslax_lib:Transferee:$versions.app_lib_version",
+            bindingcollectionadapter_lib             : "com.github.android-xiao-jun.doslax_lib:bindingcollectionadapter:$versions.app_lib_version",
+            bindingcollectionadapter_recyclerview_lib: "com.github.android-xiao-jun.doslax_lib:bindingcollectionadapter-recyclerview:$versions.app_lib_version",
+            bindingcollectionadapter_viewpager2_lib  : "com.github.android-xiao-jun.doslax_lib:bindingcollectionadapter-viewpager2:$versions.app_lib_version",
+            physicslayout_lib                        : "com.github.android-xiao-jun.doslax_lib:physicslayout:$versions.app_lib_version",
+            logwritelibrary_lib                      : "com.github.android-xiao-jun.doslax_lib:logwritelibrary:$versions.app_lib_version",
+            videoCache_lib                           : "com.github.android-xiao-jun.doslax_lib:VideoCache:$versions.app_lib_version",
+            immersionBar_lib                         : "com.github.android-xiao-jun.doslax_lib:ImmersionBar:$versions.app_lib_version",
+            GlideAnim_lib                            : "com.github.android-xiao-jun:GlideAnim:1.0.1",
             v4                      : "androidx.legacy:legacy-support-v4:$versions.support_lib",
             stdlib                  : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
             appcompat               : "androidx.appcompat:appcompat:1.3.0",
