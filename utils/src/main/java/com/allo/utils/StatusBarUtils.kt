@@ -265,14 +265,21 @@ object StatusBarUtils {
         return statusBarHeight
     }
 
+    fun getWebViewStatusBarHeight():Int{
+        return (getStatusBarHeight()/Utils.getApp().resources.displayMetrics.density).toInt()
+    }
+
     fun getNavBarHeight(): Int {
-        val res = Utils.getApp().resources
-        val resourceId = res.getIdentifier("navigation_bar_height", "dimen", "android")
-        return if (resourceId != 0) {
-            res.getDimensionPixelSize(resourceId)
-        } else {
-            0
-        }
+        //fix #11201 android.content.res.Resources$NotFoundException
+        return kotlin.runCatching {
+            val res = Utils.getApp().resources
+            val resourceId = res.getIdentifier("navigation_bar_height", "dimen", "android")
+            if (resourceId != 0) {
+                res.getDimensionPixelSize(resourceId)
+            } else {
+                0
+            }
+        }.getOrNull()?:0
     }
 
     fun getStatusBarHeightFixResource(): Int {
