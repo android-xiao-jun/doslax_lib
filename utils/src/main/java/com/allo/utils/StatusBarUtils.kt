@@ -191,7 +191,8 @@ object StatusBarUtils {
 
             window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_VISIBLE
 
-            val contentView = window.findViewById<View>(Window.ID_ANDROID_CONTENT) as ViewGroup
+            //fix #31282 java.lang.NullPointerException
+            val contentView = window.findViewById<View>(Window.ID_ANDROID_CONTENT) as? ViewGroup?:return
             val firstChild = contentView.getChildAt(0)
             if (firstChild != null) {
                 ViewCompat.setFitsSystemWindows(firstChild, false)
