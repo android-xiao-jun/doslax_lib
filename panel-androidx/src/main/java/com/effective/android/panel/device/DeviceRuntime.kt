@@ -20,7 +20,7 @@ class DeviceRuntime(val context: Context, val window: Window) {
     var isNavigationBarShow: Boolean = false
     var isPortrait: Boolean = false
     var isPad: Boolean = false
-    var isFullScreen: Boolean = false
+    var isFullScreen: Boolean = false;
 
     init {
         isPad = (context.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE

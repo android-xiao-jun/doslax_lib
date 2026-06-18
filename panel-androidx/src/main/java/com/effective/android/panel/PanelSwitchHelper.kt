@@ -148,6 +148,7 @@ class PanelSwitchHelper private constructor(builder: Builder, showKeyboard: Bool
          * 用于Android 11以上，通过OnApplyWindowInsetsListener获取键盘高度
          * 当 windowInsetsRootView == null 时，会默认使用 window.decorView 作为 rootView
          */
+        @Deprecated("")
         fun setWindowInsetsRootView(view: View) : Builder{
             windowInsetsRootView = view
             return this
@@ -155,8 +156,8 @@ class PanelSwitchHelper private constructor(builder: Builder, showKeyboard: Bool
 
 
         fun setTriggerViewClickInterceptor(interceptor: TriggerViewClickInterceptor): Builder {
-            this.triggerViewClickInterceptor = interceptor
-            return this
+            this.triggerViewClickInterceptor = interceptor;
+            return this;
         }
 
         /**
@@ -251,7 +252,9 @@ class PanelSwitchHelper private constructor(builder: Builder, showKeyboard: Bool
         fun build(showKeyboard: Boolean = false): PanelSwitchHelper {
             findSwitchLayout(rootView)
             requireNotNull(panelSwitchLayout) { "PanelSwitchHelper\$Builder#build : not found PanelSwitchLayout!" }
-            return PanelSwitchHelper(this, showKeyboard)
+            return PanelSwitchHelper(this, showKeyboard).also {
+                panelSwitchLayout?.tryBindKeyboardChangedListener()
+            }
         }
 
         private fun findSwitchLayout(view: View) {

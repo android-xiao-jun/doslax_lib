@@ -29,6 +29,8 @@ object PanelUtil {
 
     @JvmStatic
     fun showKeyboard(context: Context, view: View): Boolean {
+        view.isFocusable = true
+        view.isFocusableInTouchMode = true
         view.requestFocus()
         val mInputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         return mInputManager.showSoftInput(view, 0)

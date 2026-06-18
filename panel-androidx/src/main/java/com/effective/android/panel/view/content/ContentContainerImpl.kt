@@ -13,9 +13,9 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import androidx.annotation.IdRes
 import com.effective.android.panel.Constants
-import com.effective.android.panel.interfaces.ContentScrollMeasurer
-import com.effective.android.panel.interfaces.ViewAssertion
 import com.effective.android.panel.log.LogTracker
+import com.effective.android.panel.interfaces.ViewAssertion
+import com.effective.android.panel.interfaces.ContentScrollMeasurer
 import com.effective.android.panel.utils.PanelUtil
 import com.effective.android.panel.view.PanelSwitchLayout
 import java.util.*
@@ -322,6 +322,16 @@ class ContentContainerImpl(private val mViewGroup: ViewGroup, private val autoRe
                     targetView.requestFocus()
                 }
             }
+
+            /**
+             * 输入框获取焦点并且显示光标
+             */
+            override fun focusAndShowSelection() {
+                val targetView = if (realEditViewAttach) mainInputView else mPixelInputView
+                targetView.requestFocus()
+            }
+
+
         }
     }
 
