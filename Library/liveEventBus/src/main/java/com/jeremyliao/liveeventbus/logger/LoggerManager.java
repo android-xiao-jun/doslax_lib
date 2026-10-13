@@ -8,7 +8,7 @@ import java.util.logging.Level;
 public class LoggerManager implements Logger {
 
     private Logger logger;
-    private boolean enable = true;
+    private boolean enable = false;
 
     public LoggerManager(Logger logger) {
         this.logger = logger;
